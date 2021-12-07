@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" title="Dhimath">
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <title>Dhimath</title>
+        <script src="contributor.js"></script>
+    </head>
+    <body>
+        <!-- main container  -->
+        <div class="">
+            <header class="">
+                <nav class="sm:px-6 lg:px-8">
+                    <div
+                        x-data="{isOpen: false}" 
+                        class="flex justify-between max-w-5xl mx-auto px-4 h-16 items-center bg-white">
+                        <!-- logo  -->
+                        <div class="flex-shrink-0 flex items-center">
+                            <img class="w-10 h-10 hidden  md:flex" src="dhimath.jpg" alt="dhimath logo">
+                            <img src="DhiMathTextLogo.png" alt="dhimath text logo" class="w-32 h-10 md:hidden">    
+                        </div>
+                        
+                        <!-- menu button  -->
+                        <div class="md:hidden">
+                            <button
+                                @click="isOpen = ! isOpen" 
+                                class="p-4 text-gray-600">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                                </svg> 
+                            </button>
+                            <ul 
+                                x-show="isOpen" @click.outside="isOpen = false"
+                                class="absolute right-0 bg-gray-50 shadow-xl  rounded w-36">
+                                <li class="hover:bg-yellow-500 px-4  py-2 rounded"><a href="#">Log in</a></li>
+                                <li class="hover:bg-yellow-500 px-4  py-2 rounded"><a href="#">Profile</a></li>
+                                <li class="hover:bg-yellow-500 px-4  py-2 rounded"><a href="#">Points</a></li>
+                                <li class="hover:bg-yellow-500 px-4  py-2 rounded"><a href="#">Games</a></li>
+                                <li class="hover:bg-yellow-500 px-4  py-2 rounded"><a href="#">Puzzles</a></li>
+                                <li class="hover:bg-yellow-500 px-4  py-2 rounded"><a href="#">Events</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- navigation for big screen  -->
+                        <nav class="hidden md:flex">
+                            <ul class="flex justify-center items-center space-x-4">
+                                <li><button class="hover:bg-yellow-500 px-4  py-2 rounded-lg text-gray-900"><a href="#login">Log in</a> </button></li>
+                                <li><button class="hover:bg-yellow-500 px-4  py-2 rounded-lg text-gray-900">Profile</button></li>
+                                <li><button class="hover:bg-yellow-500 px-4  py-2 rounded-lg text-gray-900"><a href="#gallery">Gallery</a></button></li>
+                                <li><button class="hover:bg-yellow-500 px-4  py-2 rounded-lg text-gray-900"><a href="#game">Activities</a> </button></li>
+                                <li><button class="hover:bg-yellow-500 px-4  py-2 rounded-lg text-gray-900">Puzzles</button></li>
+                                <li><button class="hover:bg-yellow-500 px-4  py-2 rounded-lg text-gray-900">Events</button> </li>
+                                <li><button class="hover:bg-yellow-500 px-4  py-2 rounded-lg text-gray-900"><a href="#team">Team</a></button> </li> 
+                            </ul>
+                        </nav>
+                    </div>                   
+                </nav>
+                <!-- space for animation images -->
+                <div class="w-full h-96 bg-gradient-to-b from-yellow-700 to-green-700">
+                    <div class="flex justify-center font-serif text-gray-100 text-4xl pt-10">
+                        <h1>
+                            Joyful Maths For Everyone
+                        </h1>
+                    </div>
+                    <h2>playground - random puzzle everyday</h2>
+                </div>
+            </header>
+            
+            <main class="max-w-5xl mx-auto h-full">
+                
+                <div
+                    x-data = "{myData: contriData}" 
+                    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 my-10"
+                    id="team">
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <template x-for="item in myData" :key="item.id"> 
+                            <div class="flex justify-center items-center space-x-4">
+                                <img
+                                    class="w-6 h-6 rounded-full" 
+                                    :src="`${item.profile_img}`">
+                                <div>
+                                    <h2
+                                        x-text="item.educator">
+                                    </h2>
+                                    <p
+                                        x-text="item.special">
+                                    </p>
+                                </div>  
+                            </div>
+                        </template>
+                    </div>        
+                </div>
+                <article 
+                    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 my-10">
+                    <h2>FAQs</h2>
+                    <!-- question 1  -->
+                    <div x-data="{fOpen: false}">
+                        <button 
+                            @click = "fOpen = !fOpen" 
+                            class="flex justify-between items-center w-full bg-green-500 mt-1 py-3 px-2 rounded">
+                            <h3>What is our mission?</h3>
+                        <!-- +svg  -->
+                            <svg
+                                x-show="!fOpen" 
+                                xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        <!-- -svg -->
+                            <svg
+                                x-show="fOpen" 
+                                xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </button>
+                        <h4 x-show="fOpen">To bring joy of mathematics to all.</h4>
+                    </div>
+                    <!-- question 2  -->
+                    <div x-data="{fOpen: false}">
+                        <button 
+                            @click = "fOpen = !fOpen" 
+                            class="flex justify-between items-center w-full bg-green-500 mt-1 py-3 px-2 rounded">
+                            <h3>Where is our office?</h3>
+                        <!-- +svg  -->
+                            <svg
+                                x-show="!fOpen" 
+                                xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        <!-- -svg -->
+                            <svg
+                                x-show="fOpen" 
+                                xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </button>
+                        <h4 x-show="fOpen">In cloud, its virtual</h4>
+                    </div>
+                    <!-- question 3  -->
+                    <div x-data="{fOpen: false}">
+                        <button 
+                            @click = "fOpen = !fOpen" 
+                            class="flex justify-between items-center w-full bg-green-500 mt-1 py-3 px-2 rounded">
+                            <h3>What subject we cover?</h3>
+                        <!-- +svg  -->
+                            <svg
+                                x-show="!fOpen" 
+                                xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        <!-- -svg -->
+                            <svg
+                                x-show="fOpen" 
+                                xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </button>
+                        <h4 x-show="fOpen">Recreational and game maths</h4>
+                    </div>
+                    
+                </article>
+                <aside class="grid lg:grid-cols-2 gap-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 my-10">
+                    <!-- game of fifteen  -->
+                    <section 
+                        class="shadow px-4 py-2"
+                        id="game">
+                        <h3 class="text-center text-2xl">Game of Fifteen</h3>
+                        <p class="underline">Rules</p>
+                        <ol class="text-sm ml-5">
+                            <li class="list-disc">Click on the token to pick it up</li>
+                            <li class="list-disc">The one who gets any THREE tokens that add up to FIFTEEN is the Winner</li>
+                            <li class="list-disc">Note: TWO tokens that add up to FIFTEEN is not considered as a win.</li>
+                            <li class="list-disc">It has to be THREE</li>
+                        </ol>
+                        <div
+                            x-data="{
+                                isPlayer1Turn: true, 
+                                p1choices: [], 
+                                p2choices: [], 
+                                get isP1invalid() { 
+                                    return this.p1choices.length < 3 && this.p1choices.reduce((a, b) => a + b, 0) == 15; 
+                                },
+                                get isP2invalid() { 
+                                    return this.p2choices.length < 3 && this.p2choices.reduce((a, b) => a + b, 0) == 15; 
+                                }
+                            }" 
+                            class="mt-10 ">
+                            <div class="grid grid-cols-3 justify-items-center relative">
+                                <div 
+                                    :class = "isPlayer1Turn ? 'bg-green-500' : (isP1invalid ? 'bg-gray-500' : 'bg-pink-500')"
+                                    :class = "p1choices.reduce((a, b) => a + b, 0) == 15 || p2choices.reduce((a, b) => a + b, 0) == 15 ? 'z-0 bg-gray-500' : ''"
+                                    
+                                    class="w-full flex flex-col items-center rounded"> 
+                                    <p>Player 1</p>
+                                    <div x-text="'You selected: '+  p1choices">  </div>
+                                    <p>Your total:</p>
+                                    <h2
+                                        x-text="p1choices.reduce((a, b) => a + b, 0)" 
+                                        class="text-2xl mt-3">
+                                    </h2>
+                                    <p 
+                                        x-show="(p1choices.reduce((a, b) => a + b, 0) < 15)"
+                                        x-text="'Need ' +  (15 - p1choices.reduce((a, b) => a + b, 0))  + ' to win'"> 
+                                    </p>
+
+                                    <div
+                                        x-show="p1choices.length == 3 && p1choices.reduce((a, b) => a + b, 0) == 15"
+                                        class="flex justify-center items-center">
+                                        <svg id="emoji" viewBox="0 0 72 72" class="w-10 h-10" xmlns="http://www.w3.org/2000/svg">
+                                            <g id="color">
+                                              <path fill="#fcea2b" stroke="none" d="M41.5853,12.831h-20.795c0.072,0.333,0.152,0.72,0.246,1.168c0.476,2.287,1.392,6.775,3.152,15.579 c0.112,0.562,0.239,1.1,0.373,1.616c0.04,0.154,0.084,0.3,0.126,0.451c0.1,0.365,0.207,0.721,0.32,1.064 c0.051,0.154,0.1,0.3,0.156,0.453c0.1213,0.3413,0.249,0.6713,0.383,0.99c0.049,0.117,0.1,0.236,0.147,0.35 c0.183,0.413,0.376,0.81,0.582,1.183l0.01,0.019c0.2198,0.3981,0.4604,0.7843,0.721,1.157l0.025,0.034 c0.2309,0.3262,0.4792,0.6397,0.744,0.939c0.042,0.047,0.085,0.093,0.128,0.139c0.2358,0.258,0.4852,0.5034,0.747,0.735 c0.042,0.037,0.084,0.076,0.127,0.112c2.0451,1.6637,4.6303,2.5178,7.264,2.4c0.9852,0.0032,1.968-0.1,2.931-0.308 C41.3121,31.7469,42.1939,22.2705,41.5853,12.831z"/>
+                                              <path fill="#f1b31c" stroke="none" d="M41.5853,12.831c0.6086,9.4384-0.2729,18.9138-2.612,28.078c4.706-1.027,7.576-4.732,8.922-11.46 c1.457-7.282,2.511-12.474,3.134-15.431c0.1-0.456,0.18-0.849,0.255-1.187H41.5853z"/>
+                                              <path fill="#fcea2b" stroke="none" d="M31.4213,51.333h-3.871V58.5h10.958v-7.167L31.4213,51.333z"/>
+                                              <path fill="#f1b31c" stroke="none" d="M43.8833,51.333h-5.375V58.5h5.375V51.333z"/>
+                                              <circle cx="36.0373" cy="24.581" r="4" fill="#f1b31c" stroke="none"/>
+                                            </g>
+                                            <g>
+                                              <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M52.5373,11.832 c0,0,0-0.519-3.667,17.814c-1.588,7.942-5.5,12.572-12.833,12.572s-11.245-4.5-12.833-12.443 c-3.667-18.333-3.667-17.943-3.667-17.943L52.5373,11.832z"/>
+                                              <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M23.0443,31.479 c0,0,0.079-0.261-5.421-3.928c-2.528-1.683-5.459-3.9-5.459-6.943s2.5-5.11,5.539-5.11h1.513"/>
+                                              <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M48.7113,31.766 c0,0,0.079-0.261,5.579-3.928c2.528-1.683,5.541-3.9,5.541-6.943c-0.0146-2.842-2.3303-5.1341-5.1723-5.1196 c-0.0963,0.0005-0.1926,0.0037-0.2887,0.0096h-2.154"/>
+                                              <rect x="26.5503" y="50.332" width="18.333" height="9.167" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                              <circle cx="36.0373" cy="24.581" r="5" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                              <line x1="36.0373" x2="36.0373" y1="50.332" y2="42.218" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                            </g>
+                                        </svg>
+                                        <p>You Won</p>
+                                    </div>
+
+                                    <!-- <div
+                                        :class="p1choices.length < 3 && p1choices.reduce((a, b) => a + b, 0) == 15 ? 'bg-gray-500' : ''"
+                                        x-text='invalid'>
+                                        
+                                    </div> -->
+                                    <p 
+                                        x-show="(p1choices.reduce((a, b) => a + b, 0) > 15)"
+                                        x-text="'You selected ' + Math.abs(15 - p1choices.reduce((a, b) => a + b, 0))  + ' more'"> </p>
+                                </div>                              
+                                
+                                <div
+                                    @click="if($event.target.tagName === 'BUTTON') { isPlayer1Turn ? p1choices.push(parseInt($event.target.innerText)) : p2choices.push(parseInt($event.target.innerText)); isPlayer1Turn = !isPlayer1Turn; };" 
+                                    
+                                    class="grid grid-cols-3 gap-2 my-5 w-32 mx-auto">
+                                    <button class="w-10 h-10 bg-indigo-500 justify-self-center rounded-full flex justify-center items-center" x-bind:style="(p1choices + p2choices).includes(1) ? { visibility: 'hidden' } : ''">1</button>
+                                    <button class="w-10 h-10 bg-indigo-500 justify-self-center rounded-full flex justify-center items-center" x-bind:style="(p1choices + p2choices).includes(2) ? { visibility: 'hidden' } : ''">2</button>
+                                    <button class="w-10 h-10 bg-indigo-500 justify-self-center rounded-full flex justify-center items-center" x-bind:style="(p1choices + p2choices).includes(3) ? { visibility: 'hidden' } : ''">3</button>
+                                    <button class="w-10 h-10 bg-indigo-500 justify-self-center rounded-full flex justify-center items-center" x-bind:style="(p1choices + p2choices).includes(4) ? { visibility: 'hidden' } : ''">4</button>
+                                    <button class="w-10 h-10 bg-indigo-500 justify-self-center rounded-full flex justify-center items-center" x-bind:style="(p1choices + p2choices).includes(5) ? { visibility: 'hidden' } : ''">5</button>
+                                    <button class="w-10 h-10 bg-indigo-500 justify-self-center rounded-full flex justify-center items-center" x-bind:style="(p1choices + p2choices).includes(6) ? { visibility: 'hidden' } : ''">6</button>
+                                    <button class="w-10 h-10 bg-indigo-500 justify-self-center rounded-full flex justify-center items-center" x-bind:style="(p1choices + p2choices).includes(7) ? { visibility: 'hidden' } : ''">7</button>
+                                    <button class="w-10 h-10 bg-indigo-500 justify-self-center rounded-full flex justify-center items-center" x-bind:style="(p1choices + p2choices).includes(8) ? { visibility: 'hidden' } : ''">8</button>
+                                    <button class="w-10 h-10 bg-indigo-500 justify-self-center rounded-full flex justify-center items-center" x-bind:style="(p1choices + p2choices).includes(9) ? { visibility: 'hidden' } : ''">9</button>
+                                </div>
+                                
+                                <div 
+                                    :class="!isPlayer1Turn ? 'bg-green-500' : 'bg-pink-500'"
+                                    class="w-full flex flex-col items-center rounded"> 
+                                    <p>Player 2</p>
+                                    <div x-text="'You selected: '+  p2choices">  </div>
+                                    <p>Your total:</p>
+                                    <h2
+                                        x-text="p2choices.reduce((a, b) => a + b, 0)" 
+                                        class="text-2xl mt-3">
+                                    </h2>
+                                    <p 
+                                        x-show="(p2choices.reduce((a, b) => a + b, 0) < 15)"
+                                        x-text="'Need ' +  (15 - p2choices.reduce((a, b) => a + b, 0))  + ' to win'"> </p>
+                                    <div
+                                        x-show="p2choices.reduce((a, b) => a + b, 0) == 15"
+                                        class="flex justify-center items-center">
+                                        <svg id="emoji" viewBox="0 0 72 72" class="w-10 h-10" xmlns="http://www.w3.org/2000/svg">
+                                            <g id="color">
+                                              <path fill="#fcea2b" stroke="none" d="M41.5853,12.831h-20.795c0.072,0.333,0.152,0.72,0.246,1.168c0.476,2.287,1.392,6.775,3.152,15.579 c0.112,0.562,0.239,1.1,0.373,1.616c0.04,0.154,0.084,0.3,0.126,0.451c0.1,0.365,0.207,0.721,0.32,1.064 c0.051,0.154,0.1,0.3,0.156,0.453c0.1213,0.3413,0.249,0.6713,0.383,0.99c0.049,0.117,0.1,0.236,0.147,0.35 c0.183,0.413,0.376,0.81,0.582,1.183l0.01,0.019c0.2198,0.3981,0.4604,0.7843,0.721,1.157l0.025,0.034 c0.2309,0.3262,0.4792,0.6397,0.744,0.939c0.042,0.047,0.085,0.093,0.128,0.139c0.2358,0.258,0.4852,0.5034,0.747,0.735 c0.042,0.037,0.084,0.076,0.127,0.112c2.0451,1.6637,4.6303,2.5178,7.264,2.4c0.9852,0.0032,1.968-0.1,2.931-0.308 C41.3121,31.7469,42.1939,22.2705,41.5853,12.831z"/>
+                                              <path fill="#f1b31c" stroke="none" d="M41.5853,12.831c0.6086,9.4384-0.2729,18.9138-2.612,28.078c4.706-1.027,7.576-4.732,8.922-11.46 c1.457-7.282,2.511-12.474,3.134-15.431c0.1-0.456,0.18-0.849,0.255-1.187H41.5853z"/>
+                                              <path fill="#fcea2b" stroke="none" d="M31.4213,51.333h-3.871V58.5h10.958v-7.167L31.4213,51.333z"/>
+                                              <path fill="#f1b31c" stroke="none" d="M43.8833,51.333h-5.375V58.5h5.375V51.333z"/>
+                                              <circle cx="36.0373" cy="24.581" r="4" fill="#f1b31c" stroke="none"/>
+                                            </g>
+                                            <g>
+                                              <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M52.5373,11.832 c0,0,0-0.519-3.667,17.814c-1.588,7.942-5.5,12.572-12.833,12.572s-11.245-4.5-12.833-12.443 c-3.667-18.333-3.667-17.943-3.667-17.943L52.5373,11.832z"/>
+                                              <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M23.0443,31.479 c0,0,0.079-0.261-5.421-3.928c-2.528-1.683-5.459-3.9-5.459-6.943s2.5-5.11,5.539-5.11h1.513"/>
+                                              <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M48.7113,31.766 c0,0,0.079-0.261,5.579-3.928c2.528-1.683,5.541-3.9,5.541-6.943c-0.0146-2.842-2.3303-5.1341-5.1723-5.1196 c-0.0963,0.0005-0.1926,0.0037-0.2887,0.0096h-2.154"/>
+                                              <rect x="26.5503" y="50.332" width="18.333" height="9.167" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                              <circle cx="36.0373" cy="24.581" r="5" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                              <line x1="36.0373" x2="36.0373" y1="50.332" y2="42.218" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                                            </g>
+                                        </svg>
+                                        <p>You Won</p>
+                                    </div>
+                                    <p 
+                                        x-show="(p2choices.reduce((a, b) => a + b, 0) > 15)"
+                                        x-text="'You selected ' + Math.abs(15 - p2choices.reduce((a, b) => a + b, 0))  + ' more'"> 
+                                    </p>
+                                </div>
+                                
+                                <div 
+                                    x-show="(p1choices.reduce((a, b) => a + b, 0) == 15 || p2choices.reduce((a, b) => a + b, 0) == 15) && (p1choices.length == 3 || p2choices.length == 3)"
+                                    class="absolute text-7xl z-10 inset-0 text-center">
+                                    Game finished
+                                </div>
+                                  
+                            </div>
+                            
+                            
+                            <div class="flex justify-around items-center">
+                                <button 
+                                    @click="p1choices=[], p2choices=[]"
+                                    class="p-2 bg-indigo-500 rounded">Reset
+                                </button>
+                            </div>                          
+                        </div>
+                        
+                        
+                    </section>
+                
+                </aside>
+
+                <!-- log in component -->
+                <section 
+                    class="bg-gray-100 max-w-full sm:max-w-sm mx-auto my-10 pt-10 rounded"
+                    id="login">
+                    <div class="grid">
+                        <div class="flex justify-center items-center">
+                            <img src="dhimath.jpg" alt="dhimath logo" class="rounded-full">
+                        </div>
+                        <div class="flex flex-col justify-center items-center mt-5">
+                            <h1>Sign in to your account</h1>
+                            <p class="text-xs">Not registered yet? Register <a href="#" class="underline text-green-800">here</a> </p>
+                        </div>
+                        <form class="bg-gray-50 shadow mt-5 py-5 px-4">
+                            <div class="grid justify-items-start ">
+                                <label for="email">Email address</label>
+                                <input type="email" id="email" required class="rounded w-full h-8 border focus:ring-2 focus:ring-green-200 px-4">
+                            </div>
+                            <div class="grid justify-items-start">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" required class="rounded w-full h-8 border focus:ring-2 focus:ring-green-200 px-4">
+                            </div>
+                            <div class="flex justify-between items-center mt-3">
+                                <div x-data="{tick: false}" class="items-center flex">
+                                    <input
+                                        @click="tick = !tick" 
+                                        type="radio" 
+                                        id="remember" 
+                                        name="remember" 
+                                        value="remember">
+                                    <label for="huey" class="text-sm ml-2">Remember me</label>
+                                </div>
+                                <a href="#" class="text-green-800 text-sm">Forgot your password?</a>
+                            </div>
+                            <button class="bg-green-500 w-full mx-auto rounded mt-3 py-1">Sign in</button>
+
+                            <div class="mt-5">
+                                <div class="relative">
+                                    <div class="absolute inset-0 flex items-center">
+                                      <div class="w-full border-t border-gray-300"></div>
+                                    </div>
+                                    <div class="relative flex justify-center text-sm">
+                                      <span class="px-2 bg-gray-50 text-gray-500">
+                                        Or continue with
+                                      </span>
+                                    </div>
+                                  </div>
+                                <div class="grid grid-cols-2 gap-x-2 mt-5 ">
+                                    <button class="border border-gray py-1 rounded flex justify-center">
+                                        <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M20 10c0-5.523-4.477-10-10-10S0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.988C16.343 19.128 20 14.991 20 10z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+
+                                    <button class="border border-gray py-1 rounded flex justify-center">
+                                        <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                            <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
+                                        </svg>
+                                    </button>
+
+                                    
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Gallery carousel component  -->
+                <section id="gallery">
+                    <div class="grid grid-cols-4 gap-4">
+                        <img src="dh1 copy.jpg" alt="">
+                        <img src="dh2 copy.jpg" alt="">
+                        <img src="dh3 copy.jpg" alt="">
+                        <img src="dh4 copy.jpg" alt="">
+                    </div>
+                </section>
+
+                <!-- all games  -->
+                <section class="my-10">
+                    <div class="grid grid-cols-4 gap-4 ">
+                        <div class="rounded-md shadow bg-indigo-500 h-56 ">
+                            <h3 class="text-xl text-white flex justify-center mt-5">Game of Fifteen</h3></div>
+                        <div class="rounded-md shadow bg-indigo-500 h-56 ">
+                            <h3 class="text-xl text-white flex justify-center mt-5">Black Hole</h3></div>
+                        <div class="rounded-md shadow bg-indigo-500 h-56 ">
+                            <h3 class="text-xl text-white flex justify-center mt-5">One Heap Nim</h3></div>
+                        <div class="rounded-md shadow bg-indigo-500 h-56 ">
+                            <h3 class="text-xl text-white flex justify-center mt-5">Knight Flight</h3></div>
+                        <div class="rounded-md shadow bg-indigo-500 h-56 ">
+                            <h3 class="text-xl text-white flex justify-center mt-5">Hyper Viper 1</h3></div>
+                        <div class="rounded-md shadow bg-indigo-500 h-56 ">
+                            <h3 class="text-xl text-white flex justify-center mt-5">Hyper Viper 2</h3></div>
+                        <div class="rounded-md shadow bg-indigo-500 h-56 ">
+                            <h3 class="text-xl text-white flex justify-center mt-5">Conquest</h3></div>    
+                        <div class="rounded-md shadow bg-indigo-500 h-56 ">
+                            <h3 class="text-xl text-white flex justify-center mt-5">Conquest 2</h3></div>
+                        <div class="rounded-md shadow bg-indigo-500 h-56 ">
+                            <h3 class="text-xl text-white flex justify-center mt-5">Sliding Rook</h3></div>
+                        <div class="rounded-md shadow bg-indigo-500 h-56 ">
+                            <h3 class="text-xl text-white flex justify-center mt-5">Crows in a Row</h3></div>
+                        <div class="rounded-md shadow bg-indigo-500 h-56 ">
+                            <h3 class="text-xl text-white flex justify-center mt-5">Exploding Nim</h3></div>
+                        <div class="rounded-md shadow bg-indigo-500 h-56 ">
+                            <h3 class="text-xl text-white flex justify-center mt-5">Brainvita</h3></div>        
+                        <div class="rounded-md shadow bg-indigo-500 h-56 ">
+                            <h3 class="text-xl text-white flex justify-center mt-5">Number Race</h3></div>    
+                        <div class="rounded-md shadow bg-indigo-500 h-56 ">
+                            <h3 class="text-xl text-white flex justify-center mt-5">Card Game</h3></div>
+                        <div class="rounded-md shadow bg-indigo-500 h-56 ">
+                            <h3 class="text-xl text-white flex justify-center mt-5">Number Workout</h3></div>
+                        <div class="rounded-md shadow bg-indigo-500 h-56 ">
+                            <h3 class="text-xl text-white flex justify-center mt-5">The Tertle Race</h3></div>
+                        <div class="rounded-md shadow bg-indigo-500 h-56 ">
+                            <h3 class="text-xl text-white flex justify-center mt-5">Window Card Magic</h3></div>
+                        <div class="rounded-md shadow bg-indigo-500 h-56 ">
+                            <h3 class="text-xl text-white flex justify-center mt-5">Find the Prime</h3></div>
+                    </div>
+                </section>
+
+                <!-- drag and drop  -->
+                <section 
+                    x-data = "{ adding: false , removing: false }">
+                    <div class="grid grid-cols-3 gap-3 my-10">
+
+                        <!-- left box  -->
+                        <div class="shadow border flex-col items-center text-center pt-5 ">
+                            <h1>Odd numbers</h1>
+                            <div 
+                                class="bg-purple-200 h-full"
+                                :class="{ 'bg-purple-400':adding }"
+                                x-on:drop="adding = false"
+                                x-on:drop.prevent="
+                                    event.target.appendChild(document.getElementById(event.dataTransfer.getData('text/plain')));
+                                    "
+                                x-on:dragover.prevent="adding = true"
+                                x-on:dragleave.prevent="adding = false">
+                            </div>
+                        </div>
+                        
+                        <!-- list of numbers  -->
+                        <ul class="flex justify-cennter items-center flex-col gap-3">
+                            <template x-for="i in 10" :key="index">
+                                <li>
+                                    <button 
+                                        x-data="{ dragging: false}"
+                                        draggable="true" 
+                                        class="bg-pink-400 px-3 py-2 rounded-full"
+                                        x-bind:class="{'bg-green-500':dragging}"
+                                        x-on:dragstart.self=
+                                            "dragging = true"
+                                            event.dataTransfer.effectAllowed = 'move'
+                                            event.dataTransfer.setData('text/plain', event.target.id);
+                                        x-on:dragend="dragging = false" 
+                                        x-text="i">
+                                    </button>
+                                </li>
+                            </template>
+                            
+                        </ul>
+
+                        <!-- right box  -->
+                        <div class="shadow border flex-col items-center text-center pt-5 ">
+                            <h2>Even numbers</h2>
+                            <div 
+                                class="bg-purple-200"
+                                :class="{'bg-purple-400' : adding"}
+                                x-on:drop.prevent="const id = event.dataTransfer.getData('text/plain');
+                                    const target = event.target.closest('div');
+                                    const element = document.getElementById(id);
+                                    target.appendChild(element);
+                                    "
+                                x-on:dragover.prevent="adding = true"
+                                x-on:dragleave.prevent="adding = false"></div>
+                        </div>
+                    </div>
+                </section>
+                
+            </main>
+            <footer></footer>
+        </div>
+        <script defer src="https://unpkg.com/alpinejs@3.5.0/dist/cdn.min.js"></script>
+    </body>
+</html>

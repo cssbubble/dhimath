@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathigon clone</title>
+    <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+</head>
+<script type="tailwind-config">
+    {
+        theme: {
+            extend: {
+                colors: {
+                    'gray-850': '#181824',    
+                }
+                
+            }
+        }
+    }
+</script>
+<body class="w-full min-h-screen">
+    <header class="relative">
+        <!-- hero background  --> 
+        
+        <div class=" h-[700px] absolute inset-0  bg-center" 
+            style="background-image: url('/dhimath.jpg');"></div>
+        <div class="bg-indigo-900 h-[700px] px-10 absolute bg-opacity-95 inset-0 flex justify-around items-center">
+            <div class=" text-gray-100">
+                <h1 class="text-7xl">Dhimath</h1>
+                <p class="mt-10 text-xl">Experience Joyful Mathematics while <span class="font-bold text-2xl text-indigo-400">playing</span>  and <span class="font-bold text-2xl text-indigo-400">solving puzzles</span> </p>
+                <p class="mt-5 text-xl">Learn many Maths concepts in your day to day life, in your <span class="font-bold text-2xl text-indigo-400">home</span></p>
+            </div> 
+
+            <div>
+                <div class="w-[400px] h-[500px] border shadow-xl rounded-lg bg-white">
+                    <svg 
+                        class="w-6 h-6"
+                        viewBox="0 0 100 100" 
+                        xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="50"/>
+                    </svg>                      
+                </div>
+            </div>
+        </div>
+        <nav class="bg-gray-50 px-4 fixed top-0 right-0 left-0">
+            <div class="flex justify-between items-center my-2">
+                <!-- logo  -->
+                <button class="">
+                    <img 
+                        class="h-8"
+                        src="DhiMathTextLogo.png" alt=""> 
+                </button>
+                <!-- menu  -->
+                <div class="flex justify-around items-center text-gray-100 gap-2">
+                    <div 
+                        x-data="{ isClass: false }"
+                        class="relative">
+                        <button
+                            @click="isClass = !isClass" 
+                            class="flex justify-center items-center gap-2 text-gray-800 hover:bg-indigo-800 rounded-lg px-3 py-1 hover:text-gray-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                              </svg>
+                            <h3>Classes</h3>
+                        </button>
+                        <div
+                            x-show="isClass"
+                            @click.outside=" isClass = false" 
+                            class="flex flex-col absolute right-0 bg-gray-100 text-indigo-800 w-48 rounded-lg my-3">
+                            <button class="px-2 py-2 hover:bg-indigo-400 rounded underline ">For Parents</button>
+                            <button class="px-2 py-2 hover:bg-indigo-400 rounded underline ">For Educators</button>
+                            <button class="px-2 py-2 hover:bg-indigo-400 rounded underline ">For Kids</button>
+                        </div>
+                    </div>
+                    
+
+                    <div class="flex justify-center items-center gap-2 text-gray-800 hover:bg-indigo-800 rounded-lg px-3 py-1 hover:text-gray-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                        <h3>Exp. Dots</h3>
+                    </div>
+
+                    <div class="flex justify-center items-center gap-2 text-gray-800 hover:bg-indigo-800 rounded-lg px-3 py-1 hover:text-gray-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                          </svg>
+                        <h3>Activities</h3>
+                    </div>
+
+                    <div class="flex justify-center items-center gap-2 text-gray-800 hover:bg-indigo-800 rounded-lg px-3 py-1 hover:text-gray-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        <h3>For Educators</h3>
+                    </div>
+
+                    <div class="px-3 py-1 hover:bg-indigo-800 rounded-lg text-gray-800 hover:text-gray-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                          </svg>
+                    </div>
+
+                    <div class=" px-3 py-1 hover:bg-indigo-800 rounded-lg text-gray-800 hover:text-gray-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentcolor" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                          </svg>
+                    </div>
+
+                    <div class="flex justify-center items-center gap-2 text-gray-800 hover:bg-indigo-800 rounded-lg px-3 py-1 hover:text-gray-100">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        <h3>Achievements</h3>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</body>
+</html>
