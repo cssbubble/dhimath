@@ -12,7 +12,7 @@
     <nav class="w-full mx-auto flex justify-center items-center underline underline-offset-2 curser-pointer bg-gray-800 text-gray-50 fixed top-0 inset-x-0 z-10 " >
         <div x-data = "{ isOpen : false}" class="md:hidden flex justify-between items-center w-full relative">
             <div class="flex justify-between items-center w-full">
-                <img class="w-16 h-auto" src="dhimath.jpg" alt="dhimath">
+                <img class="w-16 h-auto" src="dhimath.png" alt="dhimath">
                 <button
                 @click = "isOpen = !isOpen" 
                 class="p-2 hover:opactiy-80 focus-ring-1">
@@ -67,11 +67,11 @@
         
     </nav>
     <header class="flex flex-col justify-center items-center p-5 md:flex-row md:items-start lg:items-center pt-32">
-        <div class="hidden md:inline-block"><img src="dhimath.jpg" alt="dhimath"></div>
+        <div class="hidden md:inline-block"><img src="dhimath.png" alt="dhimath"></div>
         <div class="md:w-1/2 lg:w-1/3 mt-5 md:ml-5 md:mt-0"><img src="DhiMathTextLogo.png" alt="Joyful maths for everyone"></div>
     </header>
     
-    <main class="w-full max-w-4xl mx-auto">
+    <main class="w-full max-w-5xl mx-auto">
         <section class="flex flex-col justify-center items-center mt-5">
             <h1 class="text-2xl font-semibold tracking-wide text-indigo-800">Mathematical Thinking</h1>
             <p class="text-xl font-semibold tracking-wide text-indigo-800">Puzzles of the Month</p>
@@ -81,49 +81,100 @@
             </div>
 
             <div class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6"  id="gallery">                
-                <div class="flex flex-col items-center overflow-hidden rounded-lg relative hover:shadow-lg hover:scale-105 transition ease-in-out bg-pink-500">
-                    <a href="images/puzzle-1.jpg">
-                        <img src="images/puzzle-1.jpg" alt="puzzle-1" class="h-60 object-cover rounded-lg flex-shrink-0 ">
+                <div class="flex flex-col items-center overflow-hidden rounded-lg relative hover:shadow-2xl hover:scale-105 transition ease-in-out bg-indigo-500 border border-gray-300 shadow">
+                    <a href="images/puzzle-1.png">
+                        <img src="images/puzzle-1.png" alt="puzzle-1" class="h-60 object-fit flex-shrink-0 ">
                     </a>
-                    <div class=" flex flex-col items-start mt-10 mb-3 text-white">
-                        <h2 class="self-center font-semibold italic">Name of the puzzle</h2>
-                        <span class="text-yellow-500">★</span>
+                    <div class=" flex flex-col items-start mt-5 mb-3 w-full px-5">
+                        <h2 class="self-center font-semibold italic">7 Bridges of Magicksburg</h2>
+                        <p class="flex justify-between items-center w-full mt-3"><span>8+</span><span class="text-yellow-500">★★★★★</span></p>
                     </div>
                 </div>
-                <div class="flex flex-col items-center overflow-hidden rounded-lg relative hover:shadow-lg hover:scale-105  transition ease-in-out bg-green-500">
-                    <a href="https://images.unsplash.com/photo-1590019012497-b44f1aaa40d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fG1hdGhzfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=900&q=60">
-                        <img src="https://images.unsplash.com/photo-1590019012497-b44f1aaa40d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fG1hdGhzfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=900&q=60" alt="puzzle-2" class="h-60 object-cover rounded-lg flex-shrink-0">
+                <div class="flex flex-col items-center overflow-hidden rounded-lg relative hover:shadow-lg hover:scale-105  transition ease-in-out bg-indigo-500 border border-gray-300 shadow">
+                    <a href="images/puzzle-2.png">
+                        <img src="images/puzzle-2.png" alt="puzzle-2" class="h-60 object-fit flex-shrink-0">
                     </a>
-                    <div class=" flex flex-col items-start mt-10 mb-3">
-                        <h2 class="self-center font-semibold italic">Name of the puzzle</h2>
-                        <span class="text-yellow-500">★★</span>
+                    <div class=" flex flex-col items-start mt-5 mb-3 w-full px-5">
+                        <h2 class="self-center font-semibold italic">BODMAS</h2>
+                        <p class="flex justify-between items-center w-full mt-3"><span>8+</span><span class="text-yellow-500">★★★★★</span></p>
                     </div>
                 </div>
-                <div class="flex flex-col items-center overflow-hidden rounded-lg relative hover:shadow-lg hover:scale-105 transition ease-in-out bg-blue-500">
-                    <a href="https://images.unsplash.com/photo-1590019012497-b44f1aaa40d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fG1hdGhzfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=900&q=60">
-                        <img src="https://images.unsplash.com/photo-1590019012497-b44f1aaa40d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fG1hdGhzfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=900&q=60" alt="puzzle-3" class="h-60 object-cover rounded-lg flex-shrink-0 ">
+                <div class="flex flex-col items-center overflow-hidden rounded-lg relative hover:shadow-lg hover:scale-105 transition ease-in-out bg-indigo-500 border border-gray-300 shadow">
+                    <a href="images/puzzle-3.png">
+                        <img src="images/puzzle-3.png" alt="puzzle-3" class="h-60 object-fit flex-shrink-0 ">
                     </a>
-                    <div class=" flex flex-col items-start mt-10 mb-3">
-                        <h2 class="self-center font-semibold italic">Name of the puzzle</h2>
-                        <span class="text-yellow-500">★★★</span>
+                    <div class=" flex flex-col items-start mt-5 mb-3 w-full px-5">
+                        <h2 class="self-center font-semibold italic">Queenhood</h2>
+                        <p class="flex justify-between items-center w-full mt-3"><span>8+</span><span class="text-yellow-500">★★★★★</span></p>
                     </div>
                 </div>
-                <div class="flex flex-col items-center overflow-hidden rounded-lg relative hover:shadow-lg hover:scale-105 transition ease-in-out bg-red-500">
-                   <a href="images/puzzle-4.jpg">
-                       <img src="images/puzzle-4.jpg" alt="puzzle-4" class="h-60 object-cover rounded-lg flex-shrink-0">
+                <div class="flex flex-col items-center overflow-hidden rounded-lg relative hover:shadow-lg hover:scale-105 transition ease-in-out bg-indigo-500 border border-gray-300 shadow">
+                   <a href="images/puzzle-4.png">
+                       <img src="images/puzzle-4.png" alt="puzzle-4" class="h-60 object-fit flex-shrink-0">
                    </a>
-                    <div class=" flex flex-col items-start mt-10 mb-3">
-                        <h2 class="self-center font-semibold italic">Name of the puzzle</h2>
-                        <span class="text-yellow-500">★★★★</span>
+                    <div class=" flex flex-col items-start mt-5 mb-3 w-full px-5">
+                        <h2 class="self-center font-semibold italic">Squared</h2>
+                        <p class="flex justify-between items-center w-full mt-3"><span>8+</span><span class="text-yellow-500">★★★★★</span></p>
                     </div>
                 </div>
-                <div class="flex flex-col items-center overflow-hidden rounded-lg relative hover:shadow-lg hover:scale-105 transition ease-in-out bg-indigo-500">
-                    <a href="https://images.unsplash.com/photo-1590019012497-b44f1aaa40d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fG1hdGhzfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=900&q=60">
-                        <img src="https://images.unsplash.com/photo-1590019012497-b44f1aaa40d3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fG1hdGhzfGVufDB8MHwwfHw%3D&auto=format&fit=crop&w=900&q=60" alt="puzzle-6" class="h-60 object-cover rounded-lg flex-shrink-0">
+                <!-- puzzle-5  -->
+                <div class="flex flex-col items-center overflow-hidden rounded-lg relative hover:shadow-lg hover:scale-105 transition ease-in-out bg-indigo-500 border border-gray-300 shadow">
+                    <a href="images/puzzle-5.png">
+                        <img src="images/puzzle-5.png" alt="puzzle-6" class="h-60 object-fit flex-shrink-0">
                     </a>
-                    <div class=" flex flex-col items-start mt-10 mb-3">
-                        <h2 class="self-center font-semibold italic">Name of the puzzle</h2>
-                        <span class="text-yellow-500">★★★★★</span>
+                    <div class=" flex flex-col items-start mt-5 mb-3 w-full px-5">
+                        <h2 class="self-center font-semibold italic">Jumps</h2>
+                        <p class="flex justify-between items-center w-full mt-3"><span>8+</span><span class="text-yellow-500">★★★★★</span></p>
+                    </div>
+                </div>
+                <!-- puzzle-6 -->
+                <div class="flex flex-col items-center overflow-hidden rounded-lg relative hover:shadow-lg hover:scale-105 transition ease-in-out bg-indigo-500 border border-gray-300 shadow">
+                    <a href="images/puzzle-6.png">
+                        <img src="images/puzzle-6.png" alt="puzzle-6" class="h-60 object-fit flex-shrink-0">
+                    </a>
+                    <div class=" flex flex-col items-start mt-5 mb-3 w-full px-5">
+                        <h2 class="self-center font-semibold italic">Its my design</h2>
+                        <p class="flex justify-between items-center w-full mt-3"><span>8+</span><span class="text-yellow-500">★★★★★</span></p>
+                    </div>
+                </div>
+                <!-- puzzle-7  -->
+                <div class="flex flex-col items-center overflow-hidden rounded-lg relative hover:shadow-lg hover:scale-105 transition ease-in-out bg-indigo-500 border border-gray-300 shadow">
+                    <a href="images/puzzle-7.png">
+                        <img src="images/puzzle-7.png" alt="puzzle-6" class="h-60 object-fit flex-shrink-0">
+                    </a>
+                    <div class=" flex flex-col items-start mt-5 mb-3 w-full px-5">
+                        <h2 class="self-center font-semibold italic">Circular Circle</h2>
+                        <p class="flex justify-between items-center w-full mt-3"><span>8+</span><span class="text-yellow-500">★★★★★</span></p>
+                    </div>
+                </div>
+                <!-- puzzle-8  -->
+                <div class="flex flex-col items-center overflow-hidden rounded-lg relative hover:shadow-lg hover:scale-105 transition ease-in-out bg-indigo-500 border border-gray-300 shadow">
+                    <a href="images/puzzle-8.png">
+                        <img src="images/puzzle-8.png" alt="puzzle-6" class="h-60 object-fit flex-shrink-0">
+                    </a>
+                    <div class=" flex flex-col items-start mt-5 mb-3 w-full px-5">
+                        <h2 class="self-center font-semibold italic">Power of Truth</h2>
+                        <p class="flex justify-between items-center w-full mt-3"><span>8+</span><span class="text-yellow-500">★★★★★</span></p>
+                    </div>
+                </div>
+                <!-- puzzle-9  -->
+                <div class="flex flex-col items-center overflow-hidden rounded-lg relative hover:shadow-lg hover:scale-105 transition ease-in-out bg-indigo-500 border border-gray-300 shadow">
+                    <a href="images/puzzle-9.png">
+                        <img src="images/puzzle-9.png" alt="puzzle-6" class="h-60 object-fit flex-shrink-0">
+                    </a>
+                    <div class=" flex flex-col items-start mt-5 mb-3 w-full px-5">
+                        <h2 class="self-center font-semibold italic">Jigsaw puzzle</h2>
+                        <p class="flex justify-between items-center w-full mt-3"><span>8+</span><span class="text-yellow-500">★★★★★</span></p>
+                    </div>
+                </div>
+                <!-- puzzle-10  -->
+                <div class="flex flex-col items-center overflow-hidden rounded-lg relative hover:shadow-lg hover:scale-105 transition ease-in-out bg-indigo-500">
+                    <a href="images/puzzle-10.png">
+                        <img src="images/puzzle-10.png" alt="puzzle-6" class="h-60 object-fit flex-shrink-0">
+                    </a>
+                    <div class=" flex flex-col items-start mt-5 mb-3 w-full px-5">
+                        <h2 class="self-center font-semibold italic">Odd one out</h2>
+                        <p class="flex justify-between items-center w-full mt-3"><span>8+</span><span class="text-yellow-500">★★★★★</span></p>
                     </div>
                 </div>
             </div>
